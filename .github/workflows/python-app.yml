@@ -37,8 +37,3 @@ jobs:
         flask run --host=0.0.0.0 --port=5000 &  # Run Flask in the background
         sleep 10  # Give Flask some time to start up
         curl http://127.0.0.1:5000  # Test the Flask app with a request
-
-    # Optionally: Run your tests (if you have them)
-    - name: Run tests
-      run: |
-        pytest  # Replace with your test command
