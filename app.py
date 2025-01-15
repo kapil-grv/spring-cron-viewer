@@ -12,7 +12,7 @@ def describe_cron_expression(cron_expression):
     # Helper function to format a part
     def interpret_part(part, unit, include_at=True):
         if part == '*':
-            return f"{'every ' if include_at else ''}{unit}"
+            return f"every {unit}"
         elif ',' in part:
             return f"at {part.replace(',', ', ')} {unit}"
         elif '-' in part:
@@ -65,7 +65,7 @@ def describe_cron_expression(cron_expression):
     if day_of_month != '*' and month != '*' and day_of_week == '*':
         description.append(f"on day {day_of_month} of every month")
 
-    # Combine all parts
+    # Combine all parts and return a more concise description
     return ', '.join(description)
 
 @app.route('/')
